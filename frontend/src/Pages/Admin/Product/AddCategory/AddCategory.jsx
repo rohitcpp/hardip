@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import Header from "../../../../Components/Header/Header";
 import { addCategoryAction } from "../../../../Redux/Actions/categoryAction";
@@ -6,33 +6,41 @@ import { useDispatch, useSelector } from "react-redux";
 
 const AddCategory = () => {
   const dispatch = useDispatch();
-
   const { loading, success, error } = useSelector((state) => state.addCategory);
 
   const [categoryName, setCategoryName] = useState("");
-  const [categoryImage, setCategoryImage] = useState("");
+  const [categoryImage, setCategoryImage] = useState(null);
   const [previewImage, setPreviewImage] = useState("");
 
-  //handel image
-  const handelImageChange = (e) => {
-    const reader = new FileReader();
-    reader.onload = async () => {
-      if (reader.readyState === 2) {
-        setCategoryImage(reader.result);
-      }
-    };
-    reader.readAsDataURL(e.target.files[0]);
-    setPreviewImage(window.URL.createObjectURL(e.target.files[0]));
+  // Handle image change
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    setCategoryImage(file);
+    setPreviewImage(URL.createObjectURL(file));
   };
 
-  //handel submit
-  const handelAddCategorySubmit = (e) => {
+  // Handle form submit
+  const handleAddCategorySubmit = (e) => {
     e.preventDefault();
+    if (!categoryName || !categoryImage) return;
+
     const categoryData = new FormData();
     categoryData.append("categoryName", categoryName);
     categoryData.append("categoryImage", categoryImage);
+
     dispatch(addCategoryAction(categoryData));
   };
+
+  // Reset form after successful submit
+  useEffect(() => {
+    if (success) {
+      setCategoryName("");
+      setCategoryImage(null);
+      setPreviewImage("");
+    }
+  }, [success]);
 
   return (
     <>
@@ -42,11 +50,9 @@ const AddCategory = () => {
         <div className="dashboard-sub-heading">
           <h1>Add Category</h1>
         </div>
+
         <div className="add-product-form-box">
-          <form
-            encType="multipart/form-data"
-            onSubmit={(e) => handelAddCategorySubmit(e)}
-          >
+          <form encType="multipart/form-data" onSubmit={handleAddCategorySubmit}>
             <div className="product-name">
               <input
                 type="text"
@@ -60,31 +66,34 @@ const AddCategory = () => {
             <div className="product-image">
               <input
                 type="file"
-                accept="images/*"
+                accept="image/*"
                 required
-                onChange={(e) => handelImageChange(e)}
+                onChange={handleImageChange}
               />
             </div>
-            <div className="product-preview">
-              {previewImage ? <img src={previewImage} alt="" /> : ""}
-            </div>
-            {error ? (
+
+            {previewImage && (
+              <div className="product-preview">
+                <img src={previewImage} alt="Preview" />
+              </div>
+            )}
+
+            {error && (
               <div className="upload-error">
                 <h1>{error}</h1>
               </div>
-            ) : (
-              ""
             )}
 
-            {success ? (
-              <div className="upload-error">
-                <h1>Category Added..!!</h1>
+            {success && (
+              <div className="upload-success">
+                <h1>Category Added Successfully!</h1>
               </div>
-            ) : (
-              ""
             )}
+
             <div className="add-product-form-btn">
-              <button>Add Category</button>
+              <button type="submit" disabled={loading}>
+                {loading ? "Adding..." : "Add Category"}
+              </button>
             </div>
           </form>
         </div>

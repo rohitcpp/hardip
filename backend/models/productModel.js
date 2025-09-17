@@ -20,10 +20,10 @@ const productSchema = new mongoose.Schema({
   },
 
   category: {
-    type: mongoose.Types.ObjectId,
-    ref: "Category",
-    required: [true, "Enter Category Name"],
-  },
+  type: mongoose.Types.ObjectId,
+  ref: "Category",
+  required: [true,"this is required..!"],
+},
 
   stocks: {
     type: Number,

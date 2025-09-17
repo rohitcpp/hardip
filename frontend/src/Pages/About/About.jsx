@@ -25,20 +25,20 @@ const About = () => {
                   margin: "2rem 0",
                   borderRadius: "100%",
                 }}
-                src="https://media.licdn.com/dms/image/v2/D5603AQGbeRJ8DA3BBA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1676695469014?e=1745452800&v=beta&t=MkkV5cX7nKh3ARf2-Ca9cSTIyKDFT4JlIrLKzBKOr58"
+                src="https://tse3.mm.bing.net/th/id/OIP.xcJCY0nOyJajzz3KZeeQfwHaHU?rs=1&pid=ImgDetMain&o=7&rm=3"
                 alt="Founder"
               />
-              <h1>Pradip Khamkar</h1>
+              <h1>SnapIt Team</h1>
               <button
                 onClick={() =>
-                  window.open("https://khamkarpradip.netlify.app/", "_blank")
+                  window.open("", "_blank")
                 }
               >
                 Visit Website
               </button>
               <br />
               <p>
-                This is a sample wesbite made by @Pradip Khamkar.
+                This is a sample wesbite made by SnapIt Admin
                 <br />
                 Only with the purpose to Learning MERN Stack
               </p>

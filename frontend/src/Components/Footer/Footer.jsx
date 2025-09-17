@@ -22,32 +22,13 @@ const Footer = () => {
           <div className="box-container">
             <div className="box">
               <h3>
-                Groco <i>{<RiShoppingBasketFill />}</i>
+                SnapIt <i>{<RiShoppingBasketFill />}</i>
               </h3>
               <p>
                 Fresh And Organic Delivery We Make Your Life Easy By Delivering
                 Grocery, Fruits And Dairy Products
               </p>
-              <div className="share">
-                {/* <Link>
-                  <i
-                    onClick={() => {
-                      window.location = `https://wa.me/7350403908?text=Say Hello..!!`;
-                    }}
-                  >
-                    {<IoLogoWhatsapp />}
-                  </i>
-                </Link> */}
-                {/* <a href="https://instagram.com/khamkar_pradip25">
-                  <i>{<SlSocialInstagram />}</i>
-                </a> */}
-                {/* <Link to="">
-                  <i>{<TiSocialTwitter />}</i>
-                </Link> */}
-                <a href="https://in.linkedin.com/in/pradip-khamkar-9a5b88259?trk=people-guest_people_search-card">
-                  <i>{<TiSocialLinkedin />}</i>
-                </a>
-              </div>
+              
             </div>
 
             {/* Contact Section */}
@@ -58,14 +39,14 @@ const Footer = () => {
                 <i>
                   <MdPhoneForwarded />
                 </i>
-                +91 7350403908
+                +91 XXXXX-XXXXX
               </Link>
 
-              <a href="mailto:khamkarpradip20@gmail.com" className="links">
+              <a href="mailto:admin@gmail.com" className="links">
                 <i>
                   <MdOutlineMarkEmailRead />
                 </i>
-                khamkarpradip20@gmail.com
+                admin@gmail.com
               </a>
 
               <Link className="links">
@@ -126,7 +107,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="credit">
-            Created By <span>Pradip Khamkar </span> | All Right Reserved
+            Created By <span>SnapIt Team</span> | All Right Reserved
           </div>
         </section>
       </footer>

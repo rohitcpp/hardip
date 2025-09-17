@@ -8,8 +8,7 @@ const categorySchema = new mongoose.Schema({
   },
   categoryImage: {
     type: String,
-    trim: true,
-    required: [true, "Enter Category Name"],
+    trim: true
   },
 });
 
