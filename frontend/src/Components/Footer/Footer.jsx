@@ -39,21 +39,21 @@ const Footer = () => {
                 <i>
                   <MdPhoneForwarded />
                 </i>
-                +91 XXXXX-XXXXX
+                +91 8799637033
               </Link>
 
-              <a href="mailto:admin@gmail.com" className="links">
+              <a href="mailto:hardip@gmail.com" className="links">
                 <i>
                   <MdOutlineMarkEmailRead />
                 </i>
-                admin@gmail.com
+                hardip@gmail.com
               </a>
 
               <Link className="links">
                 <i>
                   <RiMapPin2Line />
                 </i>
-                Pune , India -413728
+                Surat , India -395009
               </Link>
             </div>
 

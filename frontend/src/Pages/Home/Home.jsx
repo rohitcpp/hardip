@@ -60,7 +60,7 @@ const Home = () => {
   };
 
   useEffect(() => {
-    document.title = "Home";
+    document.title = "SnapIt";
     dispatch(getAllCategoryAction());
     dispatch(getAllReviewsAction());
     getRecentProducts();
